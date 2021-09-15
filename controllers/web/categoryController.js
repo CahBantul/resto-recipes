@@ -16,10 +16,6 @@ function successResponse(res, code, data = {}, meta = {}) {
   });
 }
 
-exports.home = (req, res) => {
-  res.render('index', { content: null });
-};
-
 // CRUD Categories
 exports.getCategories = (req, res) => {
   Category.findAll().then((category) => {
@@ -45,15 +41,6 @@ exports.viewPostCategory = (req, res) => {
   res.render('index', { content: './page/addCategory' });
 };
 
-exports.deleteCategory = (req, res) => {
-  const { id } = req.params;
-  Category.destroy({
-    where: { id },
-  }).then(() => {
-    res.redirect('/categories');
-  });
-};
-
 exports.getUpdateCategory = (req, res) => {
   const { id } = req.params;
   Category.findOne({
@@ -73,6 +60,15 @@ exports.postUpdateCategory = (req, res) => {
       where: { id },
     }
   ).then(() => {
+    res.redirect('/categories');
+  });
+};
+
+exports.deleteCategory = (req, res) => {
+  const { id } = req.params;
+  Category.destroy({
+    where: { id },
+  }).then(() => {
     res.redirect('/categories');
   });
 };

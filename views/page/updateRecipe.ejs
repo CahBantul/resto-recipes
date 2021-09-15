@@ -1,0 +1,41 @@
+<div class="col-md-10 p-5">
+  <h3>Update Recipe</h3>
+  <hr />
+  <a href="/recipes" class="btn btn-primary" style="float: right">back</a>
+  <form action="/recipe/update/<%= recipe.id %>" method="POST">
+    <label for="exampleInputName1" class="form-label">Food Name</label>
+    <input
+      type="text"
+      name="foodName"
+      class="form-control"
+      value="<%= recipe.foodName %>"
+      required
+    />
+    <label for="exampleInputName1" class="form-label">Category</label>
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">Category</label>
+      <select name="categoryId" class="form-select" id="inputGroupSelect01">
+        <option value="<%= recipe.categoryId %>" selected>
+          <%= recipe.Category.categoryName %>
+        </option>
+        <% for (let i=0; i < category.length; i++) { %>
+        <option value="<%= category[i].id %>">
+          <%= category[i].categoryName %>
+        </option>
+        <% } %>
+      </select>
+    </div>
+    <div class="input-group">
+      <span class="input-group-text">Ingredients</span>
+      <textarea
+        name="ingredients"
+        class="form-control"
+        aria-label="With textarea"
+      >
+ <%= recipe.ingredients %></textarea
+      >
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+  </form>
+</div>
