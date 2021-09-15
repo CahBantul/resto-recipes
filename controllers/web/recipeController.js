@@ -1,4 +1,5 @@
 const { Recipe, Category } = require('../../models');
+const { Op } = require('sequelize');
 
 const messages = {
   200: 'sukses',
@@ -44,5 +45,25 @@ exports.postRecipe = async (req, res) => {
 exports.viewPostRecipe = (req, res) => {
   Category.findAll().then((category) => {
     res.render('index', { content: './page/addRecipe', category });
+  });
+};
+
+exports.deleteRecipe = (req, res) => {
+  const { id } = req.params;
+  Recipe.destroy({
+    where: { id },
+  }).then(() => {
+    res.redirect('/recipes');
+  });
+};
+
+exports.search = (req, res) => {
+  const search = req.query.search;
+  Recipe.findAll(
+    { where: { ingredients: { [Op.iLike]: '%' + search + '%' } } },
+    { include: [{ model: Category, as: 'Category' }] }
+  ).then((search) => {
+    // res.render('index', { content: './page/search', search });
+    res.json(search);
   });
 };

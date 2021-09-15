@@ -42,12 +42,13 @@
             </li>
           </ul>
           <% if(content==null) { %>
-          <form class="d-flex">
+          <form action="/search" class="d-flex">
             <input
               class="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              name="search"
             />
             <button class="btn btn-outline-success" type="submit">
               Search

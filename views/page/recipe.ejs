@@ -24,8 +24,10 @@
         <td><%= recipe[i].ingredients %></td>
 
         <td class="text-center">
-          <a href="/update/<%= recipe[i].id %>" class="btn btn-success">Edit</a>
-          <a href="/delete/<%= recipe[i].id %>" class="btn btn-danger"
+          <a href="/recipe/update/<%= recipe[i].id %>" class="btn btn-success"
+            >Edit</a
+          >
+          <a href="/recipe/delete/<%= recipe[i].id %>" class="btn btn-danger"
             >Delete</a
           >
         </td>
