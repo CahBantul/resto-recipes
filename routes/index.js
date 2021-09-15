@@ -15,6 +15,7 @@ router.get('/', recipeController.getHome);
 /* CRUD Recipes */
 router.get('/recipes', recipeController.getRecipes);
 router.get('/add-recipe', recipeController.viewPostRecipe);
+router.post('/add-recipe', recipeController.postRecipe);
 router.get('/recipe/delete/:id', recipeController.deleteRecipe);
 router.get('/recipe/update/:id', recipeController.getUpdateRecipe);
 router.post('/recipe/update/:id', recipeController.postUpdateRecipe);
