@@ -1,0 +1,17 @@
+<div class="col-md-10 p-5">
+  <h3>Update Category</h3>
+  <hr />
+  <a href="/categories" class="btn btn-primary" style="float: right">back</a>
+  <form action="/update/<%= category.id %>" method="POST">
+    <label for="exampleInputName1" class="form-label">Category</label>
+    <input
+      type="text"
+      name="categoryName"
+      class="form-control"
+      value="<%= category.categoryName %>"
+      required
+    />
+
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+  </form>
+</div>

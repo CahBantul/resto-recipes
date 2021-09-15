@@ -1,0 +1,36 @@
+<div class="col-md-10 p-5">
+  <h3>Recipes</h3>
+  <hr />
+  <a href="/add-recipe" class="btn btn-primary" style="float: right"
+    >Add Recipe</a
+  >
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="text-center">
+        <th class="col-md-1" scope="col">No</th>
+        <th class="col-md-3" scope="col">Food Name</th>
+        <th class="col-md-2" scope="col">Category</th>
+        <th class="col-md-4" scope="col">Ingredients</th>
+        <th class="col-md-2" colspan="2" scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i=0; i < recipe.length; i++) { %>
+      <tr>
+        <th class="text-center" scope="row"><%= i+1 %></th>
+
+        <td><%= recipe[i].foodName %></td>
+        <td><%= recipe[i].Category.categoryName %></td>
+        <td><%= recipe[i].ingredients %></td>
+
+        <td class="text-center">
+          <a href="/update/<%= recipe[i].id %>" class="btn btn-success">Edit</a>
+          <a href="/delete/<%= recipe[i].id %>" class="btn btn-danger"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
